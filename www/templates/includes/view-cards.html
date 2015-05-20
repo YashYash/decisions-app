@@ -1,0 +1,38 @@
+<div class="cards-background" style="
+
+background: {{colorOne}};
+background: -moz-linear-gradient(top,  {{colorOne}} 0%, {{colorTwo}} 30%, {{colorThree}} 51%, {{colorFour}} 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,{{colorTwo}}), color-stop(30%,{{colorThree}}), color-stop(51%,{{colorFour}}), color-stop(100%,{{colorFour}}));
+background: -webkit-linear-gradient(top,  {{colorOne}} 0%,{{colorTwo}} 30%,{{colorThree}} 51%,{{colorFour}} 100%);
+background: -o-linear-gradient(top,  {{colorOne}} 0%,{{colorTwo}} 30%,{{colorThree}} 51%,{{colorFour}} 100%);
+background: -ms-linear-gradient(top,  {{colorOne}} 0%,{{colorTwo}} 30%,{{colorThree}} 51%,{{colorFour}} 100%);
+background: linear-gradient(to bottom,  {{colorOne}} 0%,{{colorTwo}} 30%,{{colorThree}} 51%,{{colorFour}} 100%);
+
+">
+    <div class="view-cards-background-overlay"></div>
+</div>
+<swipe-cards>
+    <swipe-card on-card-swipe="cardSwiped()" id="start-card">
+        Swipe down for a new card
+    </swipe-card>
+    <swipe-card ng-repeat="card in cards" on-destroy="cardDestroyed(card, $index)" on-card-swipe="cardSwiped(card)">
+        <div class="card-content">
+            <div class="options a">
+                <img src="{{card.optionOneImage}}">
+            </div>
+            <div class="options b">
+                <img src="{{card.optionTwoImage}}">
+            </div>
+            <div class="card-description">
+                <h1 class="card-heading">{{card.heading}}</h1>
+                <p>{{card.username}}</p>
+            </div>
+            <div class="count-down">
+                <div>
+                    <span>{{countDown}}</span>
+                    <span>seconds</span>
+                </div>
+            </div>
+        </div>
+    </swipe-card>
+</swipe-cards>

@@ -1,0 +1,29 @@
+<div class="auth-form-container">
+  <form ng-submit="signUp()">
+  	<div>
+  		<span class="ion-ios-person-outline icon" ng-class="{'error': (signUpError === 'username')}"></span>
+  		<input ng-model="auth.username" placeholder="Username">
+      <div class="error-line" ng-class="{'error':(signUpError === 'username')}"></div>
+  	</div>
+  	<div>
+  		<span class="ion-ios-email-outline icon" ng-class="{'error': (signUpError === 'email')}"></span>
+  		<input ng-model="auth.email" placeholder="Email">
+      <div class="error-line" ng-class="{'error':(signUpError === 'email')}"></div>
+  	</div>
+  	<div>
+  		<span class="ion-ios-locked-outline icon" ng-class="{'error': (signUpError === 'password')}"></span>
+  		<input ng-model="auth.password" placeholder="Password">
+      <div class="error-line" ng-class="{'error':(signUpError === 'password')}"></div>
+  	</div>
+    <button type="submit" 
+      ng-class="{
+        'button-loading': (loadingAuth),
+        'button-success': (authSuccess)
+      }"
+    >
+      <span ng-show="!loadingAuth">Register</span>
+      <ion-spinner icon="ripple" ng-show="loadingAuth"></ion-spinner>
+    </button>
+    <p class="account-copy">Already have an account? <span ng-click="go('in')">Sign in here</span></p>
+  </form>
+</div>

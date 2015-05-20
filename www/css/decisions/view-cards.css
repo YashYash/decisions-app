@@ -1,0 +1,162 @@
+/* View cards background */
+
+.cards-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    -webkit-transition: background 1s;
+    -moz-transition: background 1s;
+    -ms-transition: background 1s;
+    -o-transition: background 1s;
+    transition: background 1s;
+}
+
+.view-cards-background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    background: -moz-linear-gradient(top, rgba(79, 80, 97, 0.1) 0%, rgba(79, 80, 97, 0.51) 46%, rgba(79, 80, 97, 1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(79, 80, 97, 0.1)), color-stop(46%, rgba(79, 80, 97, 0.51)), color-stop(100%, rgba(79, 80, 97, 1)));
+    background: -webkit-linear-gradient(top, rgba(79, 80, 97, 0.1) 0%, rgba(79, 80, 97, 0.51) 46%, rgba(79, 80, 97, 1) 100%);
+    background: -o-linear-gradient(top, rgba(79, 80, 97, 0.1) 0%, rgba(79, 80, 97, 0.51) 46%, rgba(79, 80, 97, 1) 100%);
+    background: -ms-linear-gradient(top, rgba(79, 80, 97, 0.1) 0%, rgba(79, 80, 97, 0.51) 46%, rgba(79, 80, 97, 1) 100%);
+    background: linear-gradient(to bottom, rgba(79, 80, 97, 0.1) 0%, rgba(79, 80, 97, 0.51) 46%, rgba(79, 80, 97, 1) 100%);
+}
+
+.cards-background div {
+    width: 49%;
+    height: 49%;
+    display: inline-block;
+    -webkit-transition: background 0.3s;
+    -moz-transition: background 0.3s;
+    -ms-transition: background 0.3s;
+    -o-transition: background 0.3s;
+    transition: background 0.3s;
+}
+/* Card content */
+
+.card-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: -moz-linear-gradient(top, rgba(79, 80, 97, 0.1) 0%, rgba(79, 80, 97, 0.51) 46%, rgba(79, 80, 97, 1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(79, 80, 97, 0.1)), color-stop(46%, rgba(79, 80, 97, 0.51)), color-stop(100%, rgba(79, 80, 97, 1)));
+    background: -webkit-linear-gradient(top, rgba(79, 80, 97, 0.1) 0%, rgba(79, 80, 97, 0.51) 46%, rgba(79, 80, 97, 1) 100%);
+    background: -o-linear-gradient(top, rgba(79, 80, 97, 0.1) 0%, rgba(79, 80, 97, 0.51) 46%, rgba(79, 80, 97, 1) 100%);
+    background: -ms-linear-gradient(top, rgba(79, 80, 97, 0.1) 0%, rgba(79, 80, 97, 0.51) 46%, rgba(79, 80, 97, 1) 100%);
+    background: linear-gradient(to bottom, rgba(79, 80, 97, 0.1) 0%, rgba(79, 80, 97, 0.51) 46%, rgba(79, 80, 97, 1) 100%);
+}
+
+.card-content .options {
+    display: block;
+    width: 140%;
+    height: 58%;
+    position: absolute;
+    left: -45px;
+    background-size: cover !important;
+    overflow: hidden;
+}
+
+.card-content .options.a {
+    bottom: -8%;
+    z-index: 5;
+    -webkit-transform: rotate(10deg);
+}
+
+.card-content .options.b {
+    -webkit-transform: rotate(10deg);
+    top: -6%;
+    z-index: 10;
+}
+
+.card-content .options > img {
+    position: absolute;
+    top: -12%;
+    left: -10%;
+    width: 130%;
+    height: 130%;
+    -webkit-transform: rotate(-10deg);
+    -webkit-animation: panorama 20s infinite;
+}
+
+.card-description {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    padding: 25px 20px 0 20px;
+    z-index: 10;
+    background: -webkit-linear-gradient(bottom, rgba(89, 88, 89, 0)0%, rgba(89, 88, 89, 0)11%, rgba(17, 17, 17, .03)17%, rgba(28, 28, 28, .1)23%, rgba(19, 19, 19, 1)100%)!important;
+    background: -o-linear-gradient(bottom, rgba(89, 88, 89, 0)0%, rgba(89, 88, 89, .11)11%, rgba(17, 17, 17, .17)17%, rgba(28, 28, 28, .23)23%, rgba(19, 19, 19, 1)100%)!important;
+    background: -ms-linear-gradient(bottom, rgba(89, 88, 89, 0)0%, rgba(89, 88, 89, .11)11%, rgba(17, 17, 17, .17)17%, rgba(28, 28, 28, .23)23%, rgba(19, 19, 19, 1)100%)!important;
+    background: linear-gradient(to top, rgba(89, 88, 89, 0)0%, rgba(89, 88, 89, 0)11%, rgba(17, 17, 17, .03)17%, rgba(28, 28, 28, .1)23%, rgba(19, 19, 19, 1)100%)!important;
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#595859', endColorstr='#131313', GradientType=0)!important;
+    text-align: right;
+}
+
+.card-description > h1 {
+    color: white;
+    font-weight: 200;
+    font-size: 25px;
+    z-index: 10;
+    margin: 0;
+    padding: 0;
+}
+
+.card-description > p {
+    color: white;
+    font-weight: 600;
+    font-size: 12px;
+    padding-top: 5px;
+}
+
+.count-down {
+    position: absolute;
+    top: 20px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    border: 3px solid rgba(238, 238, 238, 0.1);
+    z-index: 11;
+    box-shadow: 0 0 33px black;
+    background-clip: padding-box;
+    color: white;
+    background: rgba(1, 1, 1, 0.5);
+}
+
+.count-down > div {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+    padding-top: 30px;
+}
+
+.count-down > div span:nth-child(1) {
+    display: block;
+    font-size: 40px;
+    font-weight: 100;
+}
+
+.count-down > div span:nth-child(2) {
+    font-size: 9px;
+    font-weight: 600;
+    margin-top: 4px;
+    position: relative;
+    top: 5px;
+    left: 0px;
+}

@@ -1,0 +1,46 @@
+.slider {
+  position: relative;
+  visibility: hidden;
+  overflow: hidden;
+  height: 100%;
+  min-height: 300px;
+}
+
+.slider-slides {
+  position: relative;
+  height: 100%;
+}
+
+.slider-slide {
+  position: relative;
+  display: block;
+  float: left;
+  width: 100%;
+  height: 100%;
+  vertical-align: top;
+}
+
+.slider-pager {
+  display: none;
+}
+
+#slider-container {
+  position: relative;
+  height:100%;
+}
+#slider-inner-container {
+  position: relative;
+  height:100%;
+}
+#slides-inner-container {
+  position: relative;
+  height:100%;
+}
+.auth-slides {
+  position: relative;
+  height:100%;
+}
+.decisions-slides {
+  position: relative;
+  height:100%;
+}

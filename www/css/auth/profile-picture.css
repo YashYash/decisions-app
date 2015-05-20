@@ -1,0 +1,83 @@
+/* Background */
+
+.profile-picture-background {
+  background: url('https://s3.amazonaws.com/spotonit/images/other/yash');
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  -webkit-filter: blur(4px);
+}
+/* Back Arrow */
+
+.back-arrow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 40px;
+  padding: 10px 20px;
+  color: white;
+}
+/* Content */
+
+.profile-picture-content {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 200px;
+  height: 250px;
+}
+
+.profile-picture-content > .profile-picture {
+  width: 150px;
+  height: 150px;
+  margin: auto;
+  border-radius: 100%;
+  background-size: cover !important;
+  border: 7px solid rgba(238, 238, 238, 0.1);
+  background-clip: padding-box !important;
+  box-shadow: 0 0 120px black;
+}
+
+.profile-picture-content > h1 {
+  color: white !important;
+  font-size: 25px;
+  font-weight: 100;
+  text-align: center;
+}
+
+.profile-picture-content button {
+  position: relative;
+  background: #ED4F73;
+  border-radius: 20px;
+  height: 35px;
+  color: white;
+  outline: 0;
+  border: 0;
+  width: 200px;
+  text-align: center;
+  font-size: 12px;
+  margin-top: 5px;
+  -webkit-transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+.profile-picture-content > p {
+  text-align: center;
+  font-size: 10px;
+  font-weight: 600;
+  position: relative;
+  bottom: 7px;
+  border-bottom: 1px solid rgba(238, 238, 238, 0.1);
+  padding-bottom: 10px;
+  margin-bottom: 0px;
+  opacity: 0.6;
+}

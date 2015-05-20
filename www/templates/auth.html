@@ -1,0 +1,14 @@
+<ion-view view-title="Auth">
+  <div class="auth-content">
+    <div id="slider-container">
+      <div id="slider-inner-container">
+        <div id="slides-inner-container">
+          <ion-slide-box on-slide-changed="slideHasChanged($index)">
+            <ion-slide ng-repeat="slide in slides" class="auth-slides">
+              <ng-include src="slide"></ng-include>
+            </ion-slide>
+          </ion-slide-box>
+        </div>
+      </div>
+  </div>
+</ion-view>

@@ -1,0 +1,51 @@
+.auth-content .auth-form-container.profile {
+	height:175px;
+}
+.auth-content form div.circle-select {
+  position: absolute;
+  width: 100%;
+  padding-bottom: 50px;
+  text-align: center;
+  left: 0;
+  top: -115px;
+}
+
+.auth-content form div.circle-select > div {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  margin: 0 15px;
+  border: 2px solid rgba(238, 238, 238, 0.3);
+  border-radius: 100%;
+  vertical-align: top;
+  background-clip: padding-box !important;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.auth-content form div.circle-select > div.selected {
+  background: #ED4F73;
+  border: 2px solid rgba(238, 238, 238, 0.2);
+}
+
+.auth-content form div.circle-select > div > span {
+  font-size: 30px;
+  position: relative;
+  top: 10px;
+}
+
+.auth-content form div.circle-select > div > p {
+  font-size: 10px;
+  position: relative;
+  top: 10px;
+  width: 50px;
+  margin: auto;
+  line-height: 1.2em;
+}
+
+.auth-content form div.circle-select > div > p.organization {
+  width: 70px;
+}

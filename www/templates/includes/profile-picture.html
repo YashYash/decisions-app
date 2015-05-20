@@ -1,0 +1,15 @@
+<div class="profile-picture-background">
+	<div class="overlay"></div>
+	<div class="overlay"></div>
+	<div class="overlay"></div>
+	<div class="overlay"></div>
+</div>
+<span class="ion-ios-arrow-thin-left back-arrow" ng-click="resetProfile()"></span>
+<div class="profile-picture-content">
+	<div class="profile-picture" style="background: url('https://s3.amazonaws.com/spotonit/images/other/yash')">
+	</div>
+	<h1 ng-show="profile.name">{{profile.name.first}} {{profile.name.last}}</h1>
+	<h1 ng-show="profile.organization">{{profile.name.first}} {{profile.organization}}</h1>	
+	<p>{{auth.username}}</p>
+	<button>Done</button>
+</div>

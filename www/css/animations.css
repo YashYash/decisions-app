@@ -1,0 +1,30 @@
+@-webkit-keyframes panorama {
+	25% {
+		-webkit-transform:translate(0) rotate(-10deg);
+		-moz-transform:translate(0) rotate(-10deg);
+		-ms-transform:translate(0) rotate(-10deg);
+		-o-transform:translate(0) rotate(-10deg);
+		transform:translate(0) rotate(-10deg);
+	}
+	50% {
+		-webkit-transform:translate(-100px) rotate(-10deg);
+		-moz-transform:translate(-100px) rotate(-10deg);
+		-ms-transform:translate(-100px) rotate(-10deg);
+		-o-transform:translate(-100px) rotate(-10deg);
+		transform:translate(-100px) rotate(-10deg);
+	}
+	75% {
+		-webkit-transform:translate(100px) rotate(-10deg);
+		-moz-transform:translate(100px) rotate(-10deg);
+		-ms-transform:translate(100px) rotate(-10deg);
+		-o-transform:translate(100px) rotate(-10deg);
+		transform:translate(100px) rotate(-10deg);
+	}	
+	100% {
+		-webkit-transform:translate(0) rotate(-10deg);
+		-moz-transform:translate(0) rotate(-10deg);
+		-ms-transform:translate(0) rotate(-10deg);
+		-o-transform:translate(0) rotate(-10deg);
+		transform:translate(0) rotate(-10deg);
+	}
+}

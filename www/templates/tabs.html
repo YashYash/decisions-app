@@ -1,0 +1,21 @@
+<div ng-controller="BackgroundController">
+  <div ng-hide="getState('Current')['state'] === 'tab.decisions'" class="global-background" ng-class="{
+	'position-1': (getState('BackgroundController')['position'] === '0'),
+	'position-2': (getState('BackgroundController')['position'] === '1'),
+	'position-3': (getState('BackgroundController')['position'] === '2'),
+	'position-4': (getState('BackgroundController')['position'] === '3')
+}">
+    <img style="width:190%; height:120%" ng-src="{{getState('BackgroundController')['background']}}">
+  </div>
+  <div class="overlay" ng-hide="getState('Current')['state'] === 'tab.decisions'"></div>
+  <div class="overlay" ng-hide="getState('Current')['state'] === 'tab.decisions'"></div>
+</div>
+<ion-tabs class="tabs-icon-top tabs-color-active-positive">
+  <!-- Dashboard Tab -->
+  <ion-tab title="Auth" icon-off="ion-ios-pulse" icon-on="ion-ios-pulse-strong" href="#/tab/auth">
+    <ion-nav-view name="auth"></ion-nav-view>
+  </ion-tab>
+  <ion-tab title="Status" icon-off="ion-ios-pulse" icon-on="ion-ios-pulse-strong" href="#/tab/decisions">
+    <ion-nav-view name="decisions"></ion-nav-view>
+  </ion-tab>
+</ion-tabs>

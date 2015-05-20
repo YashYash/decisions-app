@@ -1,0 +1,7 @@
+.decisions-content {
+  color: black;
+  bottom: 0 !important;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}

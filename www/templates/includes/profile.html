@@ -1,0 +1,31 @@
+<div class="auth-form-container profile">
+  <form ng-submit="setProfilePicture()">
+    <div class="circle-select">
+      <div ng-click="selectTab('personal')" ng-class="{'selected': (selectedTab === 'personal')}">
+        <span class="ion-ios-person-outline"></span>
+        <p>Personal use</p>
+      </div>
+      <div ng-click="selectTab('organization')" ng-class="{'selected': (selectedTab === 'organization')}">
+        <span class="ion-ios-people-outline"></span>
+        <p class="organization">Organization</p>
+      </div>
+    </div>
+    <div ng-show="selectedTab === 'personal'">
+      <span class="ion-ios-person-outline icon"></span>
+      <input ng-model="profile.name.first" placeholder="First name">
+    </div>
+    <div ng-show="selectedTab === 'personal'">
+      <span class="ion-ios-person-outline icon"></span>
+      <input ng-model="profile.name.last" placeholder="Last name">
+    </div>
+    <div ng-show="selectedTab === 'organization'" style="visibility:hidden">
+      <span class="ion-ios-person-outline icon"></span>
+      <input ng-model="auth.name.first" placeholder="Organization name">
+    </div>
+    <div ng-show="selectedTab === 'organization'">
+      <span class="ion-ios-people-outline icon"></span>
+      <input ng-model="profile.organization" placeholder="Organization name">
+    </div>    
+    <button type="submit">Next</button>
+  </form>
+</div>

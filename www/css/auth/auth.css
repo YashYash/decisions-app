@@ -1,0 +1,129 @@
+.auth-content {
+  color: white;
+  bottom: 0 !important;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+/* Auth Headings */
+
+.auth-headings {
+  color: white;
+  font-weight: 100;
+  font-size: 30px;
+  text-align: center;
+}
+
+.small-border-bottom {
+  width: 40px;
+  background: none;
+  height: 2px;
+  position: relative;
+  margin: auto;
+}
+/* Auth Forms */
+
+.auth-content .auth-form-container {
+  position: absolute;
+  bottom: 50px;
+  margin: auto;
+  left: 0;
+  right: 0;
+}
+
+.auth-content form {
+  width: 250px;
+  margin: auto;
+  text-align: center;
+}
+
+.auth-content form div {
+  position: relative;
+}
+
+.auth-content input {
+  background: none;
+  outline: 0;
+  border: none;
+  border-bottom: 1px solid rgba(238, 238, 238, 0.3);
+  display: block;
+  margin-bottom: 10px;
+  width: 100%;
+  color: white;
+  text-align: left;
+  padding-bottom: 10px;
+  font-size: 12px;
+  padding-left: 40px;
+  -webkit-border-radius: 0;
+}
+
+.auth-content button {
+  position: relative;
+  background: #ED4F73;
+  border-radius: 20px;
+  height: 35px;
+  color: white;
+  outline: 0;
+  border: 0;
+  width: 200px;
+  text-align: center;
+  font-size: 12px;
+  margin-top: 20px;
+  -webkit-transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+.auth-content button.button-loading {
+  width: 34px;
+}
+
+.auth-content button .spinner svg {
+  stroke: white;
+  fill: rgba(238, 238, 238, 0.2);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.auth-content form .icon {
+  position: absolute;
+  left: 10px;
+  font-size: 18px;
+}
+.auth-content form .icon.error {
+  color:rgb(240, 77, 77);
+}
+.account-copy {
+  margin-top: 10px;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.account-copy span {
+  color: #ED4F73;
+  font-weight: 600;
+  padding-left: 2px;
+}
+
+.error-line {
+  position: absolute !important;
+  width: 0;
+  bottom: 0;
+  height: 1px;
+  background: rgb(240, 77, 77);
+  -webkit-transition: 0.5s ease;
+  -moz-transition: 0.5s ease;
+  -ms-transition: 0.5s ease;
+  -o-transition: 0.5s ease;
+  transition: 0.5s ease;  
+}
+
+.error-line.error {
+  width: 100%; 
+}
