@@ -6,10 +6,10 @@ app.service('AuthService', [
   '$timeout',
   'ConstantsService',
   function(
-    $http, 
-    $firebaseAuth, 
-    $rootScope, 
-    $firebase, 
+    $http,
+    $firebaseAuth,
+    $rootScope,
+    $firebase,
     $timeout,
     ConstantsService) {
     'use strict';
@@ -46,7 +46,8 @@ app.service('AuthService', [
               username: user.username,
               email: user.email,
               profilePic: '',
-              thumbnailPic: ''
+              thumbnailPic: '',
+              created: new Date()
             };
             // adds additional fields to user
             authUser.$set(key, newUser).then(function(createdUser) {
@@ -66,7 +67,6 @@ app.service('AuthService', [
           if (err.code === 'EMAIL_TAKEN') {
             console.log('#### This email is already in use');
             $rootScope.$broadcast('email taken');
-            $scope.emailErrors('taken');
           }
           if (err.code === 'INVALID_EMAIL') {
             console.log('#### No account with this email');
@@ -106,6 +106,31 @@ app.service('AuthService', [
               $rootScope.$broadcast('invalid email');
             }
           }
+        });
+      },
+      createProfile: function(profile, type) {
+        var authData = auth.$getAuth();
+        console.log(authData.auth.uid);
+        var currentUserUrl = ConstantsService.fireBaseRootUrl + 'users' + '/' + authData.auth.uid + '/profile';
+        var currentUserRef = new Firebase(currentUserUrl);
+        var currentUser = $firebase(currentUserRef);
+        var createProfile;
+        if (type === 'organization') {
+          createProfile = {
+            organizationName: profile.organization,
+            type: type
+          }
+        } else {
+          createProfile = {
+            firstName: profile.name.first,
+            lastName: profile.name.last,
+            type: type
+          }
+        }
+        console.log('#### Creating the profile ...');
+        currentUser.$update(createProfile).then(function(response) {
+          console.log('#### Created the profile');
+          console.log(response);
         });
       },
       signOut: function() {

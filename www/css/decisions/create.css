@@ -1,0 +1,92 @@
+/* Background and overlay*/
+
+.create-content-background {
+  background: url('http://miriadna.com/desctopwalls/images/max/Snow-and-sunset.jpg');
+  background-size: cover !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.create-content-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(1, 1, 1, 0.5);
+  z-index: 1;
+}
+/* Content */
+
+.create-content {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  z-index: 2;
+}
+
+.create-content .scroll {
+  height: 100%;
+}
+
+.create-content .create-heading {
+  width: 100%;
+  height: 360px;
+  text-align: center;
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.create-content .create-heading > h1 {
+  color: white;
+  font-size: 30px;
+  font-weight: 100;
+  margin-bottom: 2px;
+}
+
+.create-content .create-heading > p.slogan {
+  color: white;
+  font-weight: 600;
+  opacity: 0.8;
+  width: 235px;
+  margin: auto;
+  font-size: 12px;
+}
+
+.create-content .create-heading > button {
+  background: none;
+  color: white;
+  outline: 0;
+  border: 0;
+  margin-top: 30px;
+  border: );
+  width: 220px;
+  height: 40px;
+  font-size: 12px;
+  box-shadow: 0 0 57px rgba(238, 238, 238, 0.3);
+}
+
+.create-content .create-heading > .or {
+  color: white;
+  font-size: 10px;
+  margin-top: 20px;
+}
+
+.create-content .create-heading > p.pull-up-message {
+  color: white;
+  font-size: 12px;
+  margin-top: 15px;
+}
+
+.create-content .create-heading > .down-arrow {
+  position: relative;
+  top: 3px;
+  color: white;
+  font-size: 30px;
+}

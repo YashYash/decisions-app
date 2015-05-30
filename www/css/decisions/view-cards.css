@@ -100,37 +100,47 @@
 }
 
 .card-description > h1 {
-    color: white;
-    font-weight: 200;
-    font-size: 25px;
-    z-index: 10;
-    margin: 0;
-    padding: 0;
+  color: white;
+  font-weight: 200;
+  font-size: 25px;
+  z-index: 10;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 12px;
+  text-align: center;
 }
 
+.card-description > .heading-border-bottom {
+    width:40px;
+    height:1px;
+    background:rgba(238,238,238,0.3);
+    margin:auto;
+}
 .card-description > p {
     color: white;
     font-weight: 600;
     font-size: 12px;
     padding-top: 5px;
+    text-align: center;
+    opacity:0.9;
 }
 
 .count-down {
-    position: absolute;
-    top: 20px;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    width: 100px;
-    height: 100px;
-    border-radius: 100%;
-    border: 3px solid rgba(238, 238, 238, 0.1);
-    z-index: 11;
-    box-shadow: 0 0 33px black;
-    background-clip: padding-box;
-    color: white;
-    background: rgba(1, 1, 1, 0.5);
+  position: absolute;
+  top: 20px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 85px;
+  height: 85px;
+  border-radius: 100%;
+  border: 3px solid rgba(238, 238, 238, 0.1);
+  z-index: 11;
+  box-shadow: 0 0 33px black;
+  background-clip: padding-box;
+  color: white;
+  background: rgba(1, 1, 1, 0.5);
 }
 
 .count-down > div {
@@ -143,20 +153,19 @@
     right: 0;
     margin: auto;
     text-align: center;
-    padding-top: 30px;
+    padding-top: 23px;
 }
 
 .count-down > div span:nth-child(1) {
     display: block;
-    font-size: 40px;
+    font-size: 25px;
     font-weight: 100;
 }
 
 .count-down > div span:nth-child(2) {
-    font-size: 9px;
+    font-size: 7px;
     font-weight: 600;
     margin-top: 4px;
     position: relative;
-    top: 5px;
     left: 0px;
 }

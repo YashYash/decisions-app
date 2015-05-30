@@ -31,6 +31,12 @@ app.controller('AuthController', [
         "templates/includes/register.html",
       ];
       AuthService.signOut();
+      $timeout(function() {
+        console.log(AuthService.getUser());
+      }, 3000);
+      if(AuthService.getUser()) {
+        // $state.go('tab.decisions');
+      }
     }
     $scope.go = function(where) {
       if (where === 'in') {
@@ -166,6 +172,7 @@ app.controller('AuthController', [
       $ionicSlideBoxDelegate.slide(0);
     };
     $scope.doneRegestering = function() {
+      AuthService.createProfile($scope.profile, $scope.selectedTab);
       $state.go('tab.decisions', {
         signUp: true
       });

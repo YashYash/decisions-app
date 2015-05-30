@@ -29,19 +29,21 @@
 swipe-card {
   position: fixed;
   -webkit-transform: scale(1,1);
-  width: 93%;
-  height: 97%;
+  width: 65%;
+  height: 70%;
   box-sizing: border-box;
   overflow: hidden;
   -webkit-animation-fill-mode: forwards;
   top: 0;
-  bottom: 0;
+  bottom: 35px;
   left: 0;
   right: 0;
   margin: auto;
   box-shadow: 0 0 60px black;
-  border: 5px solid rgba(238,238,238,0);
   background-clip: padding-box;
+  min-width: 280px;
+  min-height: 380px;
+  border-radius: 6px;
 }
 
 swipe-card .title {
