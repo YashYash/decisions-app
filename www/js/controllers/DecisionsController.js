@@ -3,11 +3,13 @@ app.controller('DecisionsController', [
   '$state',
   '$ionicSwipeCardDelegate',
   '$stateParams',
+  'AuthService',
   function(
     $scope,
     $state,
     $ionicSwipeCardDelegate,
-    $stateParams) {
+    $stateParams,
+    AuthService) {
     'use strict';
     console.log('Decisions Controller Loaded');
 

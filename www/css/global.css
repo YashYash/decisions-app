@@ -9,6 +9,9 @@ p,
 button {
   font-family: "Open Sans", sans-serif !important;
 }
+body {
+  background: #272729 !important;
+}
 /* Angular scope change glitches */
 
 .ng-leave-active {
@@ -103,6 +106,16 @@ button {
   border-radius: 100%;
   border: 1px solid white;
   margin: auto;
+}
+
+input {
+  -webkit-border-radius: 0;
+}
+
+button {
+  border:0;
+  background:none;
+  outline:0;
 }
 /* SEctionsal line */
 

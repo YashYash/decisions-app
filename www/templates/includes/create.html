@@ -1,14 +1,102 @@
-<div class="create-content-overlay"></div>
-<div class="create-content-background"></div>
-<ion-content class="create-content">
-  <div class="create-heading">
-    <div class="placehodler-logo"></div>
-    <h1>Decisions</h1>
-    <p class="slogan">choices made by people you care about</p>
-    <div class="sectional-line short"></div>
-    <button>Help Make Decisions</button>
-    <p class="or">OR</p>
-    <p class="pull-up-message">Pull Up to create a question</p>
-    <span class="ion-ios-arrow-thin-down down-arrow"></span>
+<!-- Top Banner - has no content -->
+<div class="create-banner" ng-class="{'slide-up-banner': (slideUpBanner)}">
+</div>
+<!-- Banner Section One - Create a card heading -->
+<div class="banner-sections one" ng-class="{'slide-up-banner': (slideUpBanner), 'hide-banner-section':(step !== 1)}">
+  <h1>CREATE A CARD</h1>
+  <div class="sub-line"></div>
+  <p>USE YOUR FRIENDS TO HELP YOU MAKE DAY TO DAY DECISIONS</p>
+</div>
+<!-- Banner Section Two - Option A heading -->
+<div class="banner-sections two" ng-class="{'slide-up-banner': (slideUpBanner), 'show-banner-section':(step === 2), 'slide-left-banner-section':(step > 2), 'slide-right-banner-section':(step < 2)}">
+  <h1>OPTION A</h1>
+  <div class="sub-line"></div>
+  <p>SET UP YOUR FIRST OPTION BY CUSTOMIZING THE CARD BELOW</p>
+  <span></span>
+</div>
+<!-- Banner Section Three - Option B heading -->
+<div class="banner-sections three" ng-class="{'slide-up-banner': (slideUpBanner), 'show-banner-section':(step === 3), 'slide-left-banner-section':(step > 3), 'slide-right-banner-section':(step < 3)}">
+  <h1>OPTION B</h1>
+  <div class="sub-line"></div>
+  <p>NOW MAKE OPTION B BY CUSTOMIZING THE BOTTOM SECTION</p>
+  <span></span>
+</div>
+<!-- Banner Section Four - Set Timer Heading -->
+<div class="banner-sections four" ng-class="{'slide-up-banner': (slideUpBanner), 'show-banner-section':(step === 4), 'slide-left-banner-section':(step > 4), 'slide-right-banner-section':(step < 4)}">
+  <h1>SET TIMER</h1>
+  <div class="sub-line"></div>
+  <p>WHEN WOULD YOU LIKE TO MAKE YOUR DECISION BY?</p>
+  <span></span>
+</div>
+<!-- All the content below the banner -->
+<ion-content class="create-content" scroll="false">
+  <!-- Title -->
+  <div class="creation-steps one" ng-class="{'hide-section': (step !== 1)}" on-swipe-up="nextStep()" on-swipe-down="prevStep()">
+    <input placeholder="NAME YOUR DECISION" ng-focus="inputsFocused()" ng-blur="inputsBlurred()" />
+    <p>This will be a short description of your overall question.</p>
+    <button ng-click="nextStep()">NEXT</button>
+  </div>
+  <!-- Set up Options -->
+  <div class="creation-steps two" ng-class="{'slide-section-down': (step < 2), 'show-section': (step >= 2), 'hide-section': (step > 3)}" on-swipe-up="nextStep()" on-swipe-down="prevStep()">
+    <div class="decision-card" ng-class="{'show-option-b': (step > 2)}">
+      <!-- Option A -->
+      <div class="options a">
+        <input placeholder="OPTION A HEADING" class="a" ng-focus="inputsFocused()" ng-blur="inputsBlurred()" />
+        <span class="ion-ios-camera-outline camera"></span>
+        <button class="prev" ng-click="prevStep()">PREVIOUS</button>
+        <button class="next" ng-click="nextStep()">NEXT</button>
+      </div>
+      <!-- Option B -->
+      <div class="options b">
+        <input placeholder="OPTION A HEADING" class="a" ng-focus="inputsFocused()" ng-blur="inputsBlurred()" />
+        <span class="ion-ios-camera-outline camera"></span>
+        <button class="prev" ng-click="prevStep()">PREVIOUS</button>
+        <button class="next" ng-click="nextStep()">NEXT</button>
+      </div>
+    </div>
+  </div>
+  <!-- Set Timer Content -->
+  <div class="duration-overlay" ng-show="showDurationOverlay" ng-class="{'add-background': (animateOverlay)}">
+    <span class="ion-ios-close-outline" ng-click="toggleDurationOverlay()" ng-class="{'show-arrow': (animateOverlay)}"></span>
+    <div class="preview-duration" ng-class="{'show-preview': (animateOverlay)}">
+      <h1>
+          {{card.duration.number}} <span>{{card.duration.type}}</span>
+        </h1>
+    </div>
+    <div class="transparent-dial" ng-class="{'top-shadow': (materialTopShadow), 'bottom-shadow':(materialBottomShadow)}">
+      <span class="ion-ios-plus-outline plus-minus plus" ng-click="incrementDuration()"></span>
+      <span class="ion-ios-minus-outline plus-minus minus" ng-click="decreaseDuration()"></span>
+      <p>
+        SWIPE UP OR DOWN
+      </p>
+      <ion-scroll direction="y" class="number-scroll" delegate-handle="number-scroll" on-scroll="scrollingNumbers()">
+        <div ng-repeat="number in numbers">{{number.number}}</div>
+      </ion-scroll>
+    </div>
+      <div class="select-type">
+        <button ng-class="{'selected': (card.duration.type === 'MINUTES')}" ng-click="setDurationType('MINUTES')">MINUTES</button>
+        <button ng-class="{'selected': (card.duration.type === 'HOURS')}" ng-click="setDurationType('HOURS')">HOURS</button>
+        <button ng-class="{'selected': (card.duration.type === 'DAYS')}" ng-click="setDurationType('DAYS')">DAYS</button>
+        <button ng-class="{'selected': (card.duration.type === 'MONTHS')}" ng-click="setDurationType('MONTHS')">MONTHS</button>
+        <button ng-click="toggleDurationOverlay()" class="done">DONE</button>
+      </div>    
+  </div>
+  <div class="creation-steps four" ng-class="{'show-section': (step === 4)}" on-swipe-up="nextStep()" on-swipe-down="prevStep()">
+    <div class="quick-selections">
+      <button ng-class="{'selected': (card.duration.quick === 'hour')}" ng-click="setDuration('hour')">
+        1 HOUR
+      </button>
+      <button ng-class="{'selected': (card.duration.quick === 'day')}" ng-click="setDuration('day')">
+        1 DAY
+      </button>
+      <button ng-class="{'selected': (card.duration.quick === 'week')}" ng-click="setDuration('week')">
+        1 WEEK
+      </button>
+      <button ng-class="{'selected': (card.duration.quick === 'year')}" ng-click="setDuration('year')">
+        1 YEAR
+      </button>
+      <button class="custom" ng-click="toggleDurationOverlay()">CUSTOM</button>
+    </div>
+    <!-- <button class="prev" ng-click="prevStep()">PREVIOUS</button> -->
   </div>
 </ion-content>

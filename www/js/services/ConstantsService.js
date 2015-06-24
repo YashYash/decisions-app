@@ -9,19 +9,31 @@ app.service('ConstantsService', [
     var fireBaseUsersRef = new Firebase(fireBaseUsersUrl);
 
     return {
-      setProd: function(isProd) {
-        this.isProd = isProd;
-
-        fireBaseRootUrl = 'https://life-decisions' + (isProd ? '-prod' : '') + '.firebaseio.com/';
-        fireBaseRootRef = new Firebase(fireBaseRootUrl);
-      },
-      getProd: function() {
-        return isProd;
-      },
       fireBaseRootUrl: fireBaseRootUrl,
       fireBaseRootRef: fireBaseRootRef,
       fireBaseUsersUrl: fireBaseUsersUrl,
-      fireBaseUsersRef: fireBaseUsersRef
+      fireBaseUsersRef: fireBaseUsersRef,
+      durationPicker: {
+        numbers: function(type) {
+          var numbers = [];
+          for (var i = 0; i <= 25; i++) {
+            numbers.push({
+              number: i + 1
+            });
+          }
+          return numbers;
+        },
+        types: function() {
+          var types = [{
+            "name": "MINUTES"
+          }, {
+            "name": "HOURS"
+          }, {
+            "name": "DAYS"
+          }];
+          return types;
+        }
+      },
     };
   }
 ]);

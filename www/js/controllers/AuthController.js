@@ -34,8 +34,8 @@ app.controller('AuthController', [
       $timeout(function() {
         console.log(AuthService.getUser());
       }, 3000);
-      if(AuthService.getUser()) {
-        // $state.go('tab.decisions');
+      if (AuthService.getUser()) {
+        $state.go('tab.decisions');
       }
     }
     $scope.go = function(where) {
@@ -120,18 +120,21 @@ app.controller('AuthController', [
     $scope.authErrors = function(type) {
       if (type === 'invalid email') {
         console.log('#### Invalid email');
+        $scope.loginError = 'email';
       }
       if (type === 'email taken') {
         console.log('#### Email taken');
+        $scope.loginError = 'email';
       }
       if (type === 'invalid password') {
         console.log('#### Invalid password');
+        $scope.loginError = 'password';
       }
       if (type === 'invalid user') {
         console.log('#### Invalid user');
+        $scope.signUpError = 'username';
+
       }
-      $scope.loginError = 'email';
-      $scope.signUpError = 'email';
       $scope.loadingAuth = false;
       $scope.slides = [
         "templates/includes/login.html",
@@ -141,12 +144,18 @@ app.controller('AuthController', [
     };
 
     $scope.userRegistered = function() {
+      $scope.userRegisteredSuccessfully = true;
       $scope.slides = [
         "templates/includes/profile.html",
         "templates/includes/profile-picture.html"
       ];
       $ionicSlideBoxDelegate.update();
-      $ionicSlideBoxDelegate.slide(0);
+      $timeout(function() {
+        $ionicSlideBoxDelegate.slide(0);
+        if (!$scope.$$phase) {
+          $scope.$apply();
+        }
+      }, 300);
     };
     $scope.checkProfileErrors = function() {
       $scope.profileError = '';
@@ -194,6 +203,10 @@ app.controller('AuthController', [
       console.log('#### User registered');
       $scope.userRegistered();
     });
+    $rootScope.$on('user authenticated', function(e) {
+      e.preventDefault();
+      $state.go('tab.decisions');
+    });
     $rootScope.$on('invalid email', function(e) {
       e.preventDefault();
       $scope.authErrors('invalid email');
@@ -211,19 +224,19 @@ app.controller('AuthController', [
       $scope.authErrors('invalid user');
     });
     $scope.$watch('profile.name.first', function() {
-      if($scope.profile.organization) {
+      if ($scope.profile.organization) {
         $scope.profile.organization = '';
       }
     });
     $scope.$watch('profile.name.last', function() {
-      if($scope.profile.organization) {
+      if ($scope.profile.organization) {
         $scope.profile.organization = '';
       }
     });
     $scope.$watch('profile.organization', function() {
-      if($scope.profile.name) {
+      if ($scope.profile.name) {
         $scope.profile.name = {};
       }
-    });    
+    });
   }
 ]);

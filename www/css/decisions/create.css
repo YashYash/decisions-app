@@ -1,92 +1,571 @@
-/* Background and overlay*/
-
-.create-content-background {
-  background: url('http://miriadna.com/desctopwalls/images/max/Snow-and-sunset.jpg');
-  background-size: cover !important;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.create-content-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background: rgba(1, 1, 1, 0.5);
-  z-index: 1;
-}
-/* Content */
+/* Ion Content */
 
 .create-content {
   position: absolute;
-  bottom: 0;
   top: 0;
-  z-index: 2;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: inset 0 0 170px black;
 }
 
 .create-content .scroll {
   height: 100%;
 }
+/* Global input styling */
 
-.create-content .create-heading {
-  width: 100%;
-  height: 360px;
-  text-align: center;
-  z-index: 10;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-}
-
-.create-content .create-heading > h1 {
-  color: white;
-  font-size: 30px;
-  font-weight: 100;
-  margin-bottom: 2px;
-}
-
-.create-content .create-heading > p.slogan {
-  color: white;
-  font-weight: 600;
-  opacity: 0.8;
-  width: 235px;
-  margin: auto;
-  font-size: 12px;
-}
-
-.create-content .create-heading > button {
+.create-content input {
   background: none;
-  color: white;
   outline: 0;
-  border: 0;
-  margin-top: 30px;
-  border: );
-  width: 220px;
-  height: 40px;
+  padding-bottom: 10px;
   font-size: 12px;
-  box-shadow: 0 0 57px rgba(238, 238, 238, 0.3);
+  text-align: center;
+  border: 0;
+  border-bottom: 2px solid rgba(238, 238, 238, 0.1);
+  width: 220px;
+  margin-bottom: 20px;
+  color: white;
+  font-weight: 100;
+}
+/* Banner */
+
+.create-banner {
+  z-index: 1;
+  width: 140%;
+  height: 300px;
+  min-height: 250px;
+  max-height: 300px;
+  position: fixed;
+  top: -60px;
+  left: -50px;
+  -webkit-transform: rotate(10deg);
+  -moz-transform: rotate(10deg);
+  -ms-transform: rotate(10deg);
+  -o-transform: rotate(10deg);
+  transform: rotate(10deg);
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -ms-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
+  box-shadow: 0 0 50px black;
+  text-align: center;
+  color: white;
+  background: url('https://dff2h0hbfv6w4.cloudfront.net/ZAXSCDVF12345/banner-background.jpg');
+  background-size: cover;
+  opacity: 1;
 }
 
-.create-content .create-heading > .or {
+.slide-up-banner {
+  -webkit-transform: translateY(-300px) !important;
+  -moz-transform: translateY(-300px) !important;
+  -ms-transform: translateY(-300px) !important;
+  -o-transform: translateY(-300px) !important;
+  transform: translateY(-300px) !important;
+  opacity: 0 !important;
+}
+/* Banner sections */
+
+.banner-sections {
+  z-index: 2;
+  position: absolute;
+  width: 80%;
+  max-width: 280px;
+  margin: auto;
+  height: 140px;
+  left: 0;
+  right: 0;
+  top: 50px;
+  text-align: center;
+  -webkit-transition: all 0.6s, opacity 1s;
+  -moz-transition: all 0.6s, opacity 1s;
+  -ms-transition: all 0.6s, opacity 1s;
+  -o-transition: all 0.6s, opacity 1s;
+  transition: all 0.6s, opacity 1s;
+  opacity: 1;
+}
+
+.banner-sections.one.hide-banner-section {
+  opacity: 0;
+  -webkit-transform: translateX(-300px);
+  -moz-transform: translateX(-300px);
+  -ms-transform: translateX(-300px);
+  -o-transform: translateX(-300px);
+  transform: translateX(-300px);
+}
+
+.banner-sections.two {
+  -webkit-transform: translateX(300px);
+  -moz-transform: translateX(300px);
+  -ms-transform: translateX(300px);
+  -o-transform: translateX(300px);
+  transform: translateX(300px);
+  opacity: 0;
+}
+
+.banner-sections.two.show-banner-section {
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -o-transform: translateX(0);
+  transform: translateX(0);
+  opacity: 1;
+  z-index: 1;
+}
+
+.banner-sections.two.slide-left-banner-section {
+  -webkit-transform: translateX(-300px);
+  -moz-transform: translateX(-300px);
+  -ms-transform: translateX(-300px);
+  -o-transform: translateX(-300px);
+  transform: translateX(-300px);
+  opacity: 0;
+}
+
+.banner-sections.two.slide-right-banner-section {
+  -webkit-transform: translateX(300px);
+  -moz-transform: translateX(300px);
+  -ms-transform: translateX(300px);
+  -o-transform: translateX(300px);
+  transform: translateX(300px);
+  opacity: 0;
+}
+
+.banner-sections.four,
+.banner-sections.three,
+.banner-sections.two {
+  -webkit-transform: translateX(300px);
+  -moz-transform: translateX(300px);
+  -ms-transform: translateX(300px);
+  -o-transform: translateX(300px);
+  transform: translateX(300px);
+  opacity: 0;
+}
+
+.banner-sections.four.show-banner-section,
+.banner-sections.three.show-banner-section,
+.banner-sections.two.show-banner-section {
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -o-transform: translateX(0);
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.banner-sections.four.slide-left-banner-section,
+.banner-sections.three.slide-left-banner-section,
+.banner-sections.two.slide-left-banner-section {
+  -webkit-transform: translateX(-300px);
+  -moz-transform: translateX(-300px);
+  -ms-transform: translateX(-300px);
+  -o-transform: translateX(-300px);
+  transform: translateX(-300px);
+  opacity: 0;
+}
+
+.banner-sections.four.slide-right-banner-section,
+.banner-sections.three.slide-right-banner-section,
+.banner-sections.two.slide-right-banner-section {
+  -webkit-transform: translateX(300px);
+  -moz-transform: translateX(300px);
+  -ms-transform: translateX(300px);
+  -o-transform: translateX(300px);
+  transform: translateX(300px);
+  opacity: 0;
+}
+
+.banner-sections > h1 {
+  color: white;
+  font-weight: 100;
+  margin: 0;
+  padding-bottom: 15px;
+}
+
+.banner-sections > .sub-line {
+  width: 50px;
+  height: 1px;
+  background: rgba(238, 238, 238, 0.3);
+  margin: auto;
+  margin-bottom: 15px;
+}
+
+.banner-sections > p {
+  font-weight: 600;
+  color: white;
+  font-size: 12px;
+  line-height: 2em;
+}
+/* Creation Steps */
+
+.creation-steps {
+  position: absolute;
+  top: 300px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: auto;
+  text-align: center;
+  -webkit-transition: all 0.6s, opacity 1s;
+  -moz-transition: all 0.6s, opacity 1s;
+  -ms-transition: all 0.6s, opacity 1s;
+  -o-transition: all 0.6s, opacity 1s;
+  transition: all 0.6s, opacity 1s;
+  opacity: 1;
+}
+
+.creation-steps.two.hide-section,
+.creation-steps.one.hide-section {
+  opacity: 0 !important;
+  -webkit-transform: translateY(-300px) !important;
+  -moz-transform: translateY(-300px) !important;
+  -ms-transform: translateY(-300px) !important;
+  -o-transform: translateY(-300px) !important;
+  transform: translateY(-300px) !important;
+}
+
+.creation-steps.four,
+.creation-steps.two {
+  -webkit-transform: translateY(300px);
+  -moz-transform: translateY(300px);
+  -ms-transform: translateY(300px);
+  -o-transform: translateY(300px);
+  transform: translateY(300px);
+  opacity: 0;
+}
+
+.creation-steps.four.show-section,
+.creation-steps.two.show-section {
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.creation-steps > p {
   color: white;
   font-size: 10px;
-  margin-top: 20px;
+  width: 200px;
+  margin: auto;
+  line-height: 1.5em;
+  margin: 0 auto 20px auto;
 }
 
-.create-content .create-heading > p.pull-up-message {
+.creation-steps > button {
+  width: 200px;
+  height: 35px;
+  border: 1px solid #ed4f73;
   color: white;
+  font-weight: 600;
+  background: none;
   font-size: 12px;
-  margin-top: 15px;
 }
 
-.create-content .create-heading > .down-arrow {
+.creation-steps .item.range {
+  background: none;
+  border: none;
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  width: 240px;
   position: relative;
-  top: 3px;
-  color: white;
+  right: 70px;
+  top: 15px;
+}
+
+.creation-steps .item.range input {
+  border: 0;
+}
+/* Decision Card */
+
+.decision-card {
+  width: 250px;
+  height: 360px;
+  border: 1px solid rgba(238, 238, 238, 0.1);
+  margin: auto;
+  position: relative;
+  -webkit-transition: all 0.6s, opacity 1s;
+  -moz-transition: all 0.6s, opacity 1s;
+  -ms-transition: all 0.6s, opacity 1s;
+  -o-transition: all 0.6s, opacity 1s;
+  transition: all 0.6s, opacity 1s;
+  -moz-transition: all 0.6s, opacity 1s;
+  -ms-transition: all 0.6s, opacity 1s;
+  -o-transition: all 0.6s, opacity 1s;
+  transition: all 0.6s, opacity 1s;
+}
+
+.decision-card.show-option-b {
+  -webkit-transform: translateY(-225px);
+  -moz-transform: translateY(-225px);
+  -ms-transform: translateY(-225px);
+  -o-transform: translateY(-225px);
+  transform: translateY(-225px);
+  -moz-transform: translateY(-225px);
+  -ms-transform: translateY(-225px);
+  -o-transform: translateY(-225px);
+  transform: translateY(-225px);
+}
+
+.decision-card .options {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 50%;
+}
+
+.decision-card .options.a {
+  top: 0;
+  border-bottom: 1px solid rgba(238, 238, 238, 0.1);
+}
+
+.decision-card .options.b {
+  bottom: 0;
+}
+
+.decision-card .options > input.a {
+  position: relative;
+  top: 20px;
+}
+
+.decision-card .options > .camera {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  color: #ED4F73;
   font-size: 30px;
+  width: 60px;
+  height: 60px;
+  line-height: 1.6em;
+  border-radius: 100%;
+  border: 5px solid rgba(237, 79, 115, 0.1);
+  -webkit-animation: pulse-pink 5s infinite;
+  -moz-animation: pulse-pink 5s infinite;
+  -ms-animation: pulse-pink 5s infinite;
+  -o-animation: pulse-pink 5s infinite;
+  animation: pulse-pink 5s infinite;
+}
+
+.decision-card .options > button {
+  width: 80px;
+  height: 25px;
+  color: white;
+  font-size: 10px;
+  font-weight: 600;
+  position: absolute;
+  right: -25px;
+}
+
+.decision-card .options > button.next {
+  background: rgba(237, 79, 115, 1);
+  bottom: 20px;
+}
+
+.decision-card .options > button.prev {
+  border: 1px solid rgba(237, 79, 115, 1);
+  bottom: 60px;
+}
+/* Set Timer */
+
+.quick-selections {
+  width: 280px;
+  height: 100px;
+  text-align: center;
+  margin: auto;
+  position: relative;
+  top:-25px;
+}
+
+.quick-selections > button {
+  width: 100px;
+  height: 30px;
+  color: white;
+  border: 1px solid #ed4f73;
+  border-radius: 35px;
+  display: inline-block;
+  margin: 10px 10px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.quick-selections > button.custom {
+  margin: 10px 0 0 0;
+  width: calc(100% - 50px);
+}
+
+.quick-selections > button.selected {
+  background: #ed4f73;
+}
+
+.duration-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  background: rgba(39, 39, 41, 0);
+  box-shadow: inset 0 0 0 rgba(39, 39, 41, 1);
+  z-index: 3;
+  transition: 0.2s;
+  -webkit-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -o-transition: 0.2s;
+  -ms-transition: 0.2s;
+  opacity: 0;
+}
+
+.duration-overlay.add-background {
+  opacity: 1;
+  background: rgba(39, 39, 41, 0.95);
+}
+
+.duration-overlay > span {
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: #ED4F73;
+  font-size: 40px;
+  padding: 14px;
+  -webkit-transform: rotate(0deg) scale(0, 0);
+  -moz-transform: rotate(0deg) scale(0, 0);
+  -ms-transform: rotate(0deg) scale(0, 0);
+  -o-transform: rotate(0deg) scale(0, 0);
+  transform: rotate(0deg) scale(0, 0);
+  transition: 1s;
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  -o-transition: 1s;
+  -ms-transition: 1s;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.duration-overlay > span.show-arrow {
+  -webkit-transform: rotate(720deg) scale(1, 1);
+  -moz-transform: rotate(720deg) scale(1, 1);
+  -ms-transform: rotate(720deg) scale(1, 1);
+  -o-transform: rotate(720deg) scale(1, 1);
+  transform: rotate(720deg) scale(1, 1);
+}
+
+.duration-overlay > .preview-duration {
+  width: 280px;
+  margin: auto;
+  text-align: center;
+  color: white;
+  padding-top: 50px;
+  position: relative;
+}
+
+.duration-overlay > .preview-duration > h1 {
+  color: #ED4F73;
+  font-size: 60px;
+  font-weight: 100;
+  display: block;
+}
+
+.duration-overlay > .preview-duration > h1 > span {
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  display: block;
+}
+
+.duration-overlay > .transparent-dial {
+  width: 280px;
+  height: 140px;
+  border: 1px solid rgba(238, 238, 238, 0.1);
+  margin: auto;
+  position: relative;
+  margin-top: 30px;
+  text-align: center;
+  box-shadow: inset 0 0 100px rgba(237, 79, 115, 0);
+  transition: 0.2s;
+  -webkit-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -o-transition: 0.2s;
+  -ms-transition: 0.2s;
+}
+
+.duration-overlay > .transparent-dial.top-shadow {
+  box-shadow: inset 16px 61px 100px rgba(237, 79, 115, 0.4);
+}
+
+.duration-overlay > .transparent-dial.bottom-shadow {
+  box-shadow: inset -19px -38px 100px rgba(237, 79, 115, 0.4);
+}
+
+.duration-overlay > .transparent-dial .plus-minus {
+  font-size: 25px;
+  color: white;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  padding: 10px;
+  cursor: pointer;
+  opacity: 0.6;
+  z-index: 1;
+}
+
+.duration-overlay > .transparent-dial .plus-minus.plus {
+  top: 0;
+}
+
+.duration-overlay > .transparent-dial .plus-minus.minus {
+  bottom: 0;
+}
+
+.duration-overlay > .transparent-dial > p {
+  color: #ED4F73;
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 55px;
+}
+
+.duration-overlay > .transparent-dial > .number-scroll {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  color: rgba(39, 39, 41, 1);
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.duration-overlay > .select-type {
+  width: 280px;
+  position: relative;
+  margin: auto;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.duration-overlay > .select-type > button {
+  width: 100px;
+  height: 30px;
+  color: white;
+  border: 1px solid #ed4f73;
+  border-radius: 35px;
+  display: inline-block;
+  margin: 10px 10px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.duration-overlay > .select-type > button.selected {
+  background: #ed4f73;
+}
+
+.duration-overlay > .select-type > button.done {
+  width: calc(100% - 50px);
 }

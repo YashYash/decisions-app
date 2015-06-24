@@ -1,4 +1,4 @@
-var app = angular.module('decisions', ['ionic', 'firebase', 'ionic.contrib.ui.cards'])
+var app = angular.module('decisions', ['ionic', 'firebase', 'ionic.contrib.ui.cards', 'ionic-material'])
 
 app.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
@@ -33,22 +33,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
 });
 
 
-
-  // .state('tab.chats', {
-  //     url: '/chats',
-  //     views: {
-  //       'tab-chats': {
-  //         templateUrl: 'templates/tab-chats.html',
-  //         controller: 'ChatsCtrl'
-  //       }
-  //     }
-  //   })
-  //   .state('tab.chat-detail', {
-  //     url: '/chats/:chatId',
-  //     views: {
-  //       'tab-chats': {
-  //         templateUrl: 'templates/chat-detail.html',
-  //         controller: 'ChatDetailCtrl'
-  //       }
-  //     }
-  //   })
+app.constant('moment', moment);
+app.filter('moment', function() {
+  return function(dateString, format, calendar) {
+    return moment(dateString).format(format);
+  };
+});

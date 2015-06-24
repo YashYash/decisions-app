@@ -1,4 +1,4 @@
-<div class="auth-form-container">
+<div class="auth-form-container" ng-hide="userRegisteredSuccessfully">
   <form ng-submit="signIn()">
   	<div>
   		<span class="ion-ios-email-outline icon" ng-class="{'error': (loginError === 'email')}"></span>
@@ -16,8 +16,8 @@
     		'button-success': (authSuccess)
     	}"
     >
-    	<span ng-show="!loadingAuth">Login</span>
-    	<ion-spinner icon="ripple" ng-show="loadingAuth"></ion-spinner>
+    	<span ng-if="!loadingAuth && !userRegisteredSuccessfully">Login</span>
+    	<ion-spinner icon="ripple" ng-if="loadingAuth && !userRegisteredSuccessfully"></ion-spinner>
     </button>
     <p class="account-copy">Don't have an account? <span ng-click="go('up')">Sign up here</span></p>
   </form>
