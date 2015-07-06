@@ -1,0 +1,22 @@
+<div class="contact-slideable-container">
+	<div class="contact-slideable"
+	on-drag-left="contactDraggedLeft()"
+	on-drag-right="contactDraggedRight()"
+	on-release="released()"
+	ng-class="{
+		'add-transition': (addTransition)
+	}"
+	style="
+		-webkit-transform: translateX({{slideLeft}}px);
+		-moz-transform: translateX({{slideLeft}}px);
+		-ms-transform: translateX({{slideLeft}}px);
+		-o-transform: translateX({{slideLeft}}px);
+		transform: translateX({{slideLeft}}px);
+	"
+	>
+		{{contact.name.formatted}}
+	</div>
+	<div class="call-to-actions">
+		<span class="ion-ios-albums-outline"></span>
+	</div>
+</div>

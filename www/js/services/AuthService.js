@@ -2,14 +2,14 @@ app.service('AuthService', [
   '$http',
   '$firebaseAuth',
   '$rootScope',
-  '$firebase',
+  '$firebaseObject',
   '$timeout',
   'ConstantsService',
   function(
     $http,
     $firebaseAuth,
     $rootScope,
-    $firebase,
+    $firebaseObject,
     $timeout,
     ConstantsService) {
     'use strict';
@@ -19,8 +19,7 @@ app.service('AuthService', [
 
     var ref = ConstantsService.fireBaseRootRef;
     var auth = $firebaseAuth(ref);
-    var authUser = $firebase(ConstantsService.fireBaseUsersRef);
-    console.log(auth);
+    var authUser = $firebaseObject(ConstantsService.fireBaseUsersRef);
     return {
       signUp: function(user) {
         var email = user.email;
@@ -50,7 +49,8 @@ app.service('AuthService', [
               created: new Date()
             };
             // adds additional fields to user
-            authUser.$set(key, newUser).then(function(createdUser) {
+            authUser[key] = newUser;
+            authUser.$save().then(function(createdUser) {
               console.log('#### Created user object');
               $rootScope.$broadcast('user registered');
             }, function(err) {
@@ -113,7 +113,7 @@ app.service('AuthService', [
         console.log(authData.auth.uid);
         var currentUserUrl = ConstantsService.fireBaseRootUrl + 'users' + '/' + authData.auth.uid + '/profile';
         var currentUserRef = new Firebase(currentUserUrl);
-        var currentUser = $firebase(currentUserRef);
+        var currentUser = $firebaseObject(currentUserRef);
         var createProfile;
         if (type === 'organization') {
           createProfile = {
@@ -128,7 +128,7 @@ app.service('AuthService', [
           }
         }
         console.log('#### Creating the profile ...');
-        currentUser.$update(createProfile).then(function(response) {
+        currentUser.$save(createProfile).then(function(response) {
           console.log('#### Created the profile');
           console.log(response);
         });

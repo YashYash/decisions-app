@@ -1,38 +1,29 @@
-<div class="cards-background" style="
-
-background: {{colorOne}};
-background: -moz-linear-gradient(top,  {{colorOne}} 0%, {{colorTwo}} 30%, {{colorThree}} 51%, {{colorFour}} 100%);
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,{{colorTwo}}), color-stop(30%,{{colorThree}}), color-stop(51%,{{colorFour}}), color-stop(100%,{{colorFour}}));
-background: -webkit-linear-gradient(top,  {{colorOne}} 0%,{{colorTwo}} 30%,{{colorThree}} 51%,{{colorFour}} 100%);
-background: -o-linear-gradient(top,  {{colorOne}} 0%,{{colorTwo}} 30%,{{colorThree}} 51%,{{colorFour}} 100%);
-background: -ms-linear-gradient(top,  {{colorOne}} 0%,{{colorTwo}} 30%,{{colorThree}} 51%,{{colorFour}} 100%);
-background: linear-gradient(to bottom,  {{colorOne}} 0%,{{colorTwo}} 30%,{{colorThree}} 51%,{{colorFour}} 100%);
-
-">
-    <div class="view-cards-background-overlay"></div>
-</div>
-<swipe-cards>
-    <swipe-card on-card-swipe="cardSwiped()" id="start-card">
-        Swipe down for a new card
-    </swipe-card>
-    <swipe-card ng-repeat="card in cards" on-destroy="cardDestroyed(card, $index)" on-card-swipe="cardSwiped(card)">
-        <div class="card-content">
-            <div class="options a">
-                <img src="{{card.optionOneImage}}">
-            </div>
-            <div class="options b">
-                <img src="{{card.optionTwoImage}}">
-            </div>
-            <div class="card-description">
-                <h1 class="card-heading">{{card.heading}}</h1>
-                <div class="heading-border-bottom"></div>
-            </div>
-            <div class="count-down">
-                <div>
-                    <span>{{countDown}}</span>
-                    <span>seconds</span>
-                </div>
-            </div>
+<ion-slide-box class="view-cards" ng-show="showCards">
+  <ion-slide class="view-card" ng-repeat="card in cards">
+    <view-card></view-card>
+  </ion-slide>
+</ion-slide-box>
+<ion-scroll direction="y" ng-show="!showCards" class="contacts-container" overflow-scroll=”true”>
+  <div>
+    <div ng-repeat="alphabet in alphabets" ng-if="alphabet.contacts.length > 0">
+      <div class="group-list">
+        <div class="list">
+          <div class="alphabet" ion-affix data-affix-within-parent-with-class="group-list">
+            {{alphabet.name}}
+          </div>
+          <div class="contact" ng-repeat="contact in alphabet.contacts | orderBy: 'name'">
+            <contact-slideable contact="contact"></contact-slideable>
+          </div>
         </div>
-    </swipe-card>
-</swipe-cards>
+      </div>
+    </div>
+  </div>
+</ion-scroll>
+<div class="app-navigation">
+  <span class="ion-android-add plus-icon" ng-click="slideTo(0)"></span>
+  <div class="toggle-view" ng-click="toggleView()" ng-class="{'rotate-button':(!showCards)}">
+    <span class="ion-ios-people-outline" ng-class="{'show-icon': (showCards)}"></span>
+    <span class="ion-ios-albums-outline" ng-class="{'show-icon': (!showCards)}"></span>
+  </div>
+  <span class="ion-arrow-graph-up-right analytics" ng-click="slideTo(2)"></span>
+</div>

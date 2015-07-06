@@ -11,6 +11,9 @@ app.service('StateService', [
     	'Current': {
     		'state': $state.current.name
     	},
+        'User': {
+            'contacts': []
+        },
     	'BackgroundController': {
     		'position': '0',
     		'background': 'http://infinitecomix.com//wp-content/uploads/2014/03/crossroads.jpg' 

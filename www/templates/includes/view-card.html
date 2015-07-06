@@ -1,0 +1,19 @@
+<div class="options a" on-drag-down="dragDownA()" on-drag-up="dragUpA()" on-release="releaseA()" 
+			style="
+				height: calc(50% + {{heightA}}px);
+			" 
+			ng-class="{
+                'add-transition': (transitionA),
+                'add-index': (addIndexA)
+            }">
+  <div class="card-overlay top"></div>
+</div>
+<div class="options b" on-drag-down="dragDownB()" on-drag-up="dragUpB()" on-release="releaseB()" 
+			style="
+				height: calc(50% + {{heightB}}px); z-index:1;
+			" 
+			ng-class="{
+                'add-transition': (transitionB)
+            }">
+  <div class="card-overlay bottom"></div>
+</div>

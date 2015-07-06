@@ -1,171 +1,222 @@
-/* View cards background */
+/* View Cards*/
 
-.cards-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    -webkit-transition: background 1s;
-    -moz-transition: background 1s;
-    -ms-transition: background 1s;
-    -o-transition: background 1s;
-    transition: background 1s;
-}
-
-.view-cards-background-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100% !important;
-    height: 100% !important;
-    background: -moz-linear-gradient(top, rgba(79, 80, 97, 0.1) 0%, rgba(79, 80, 97, 0.51) 46%, rgba(79, 80, 97, 1) 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(79, 80, 97, 0.1)), color-stop(46%, rgba(79, 80, 97, 0.51)), color-stop(100%, rgba(79, 80, 97, 1)));
-    background: -webkit-linear-gradient(top, rgba(79, 80, 97, 0.1) 0%, rgba(79, 80, 97, 0.51) 46%, rgba(79, 80, 97, 1) 100%);
-    background: -o-linear-gradient(top, rgba(79, 80, 97, 0.1) 0%, rgba(79, 80, 97, 0.51) 46%, rgba(79, 80, 97, 1) 100%);
-    background: -ms-linear-gradient(top, rgba(79, 80, 97, 0.1) 0%, rgba(79, 80, 97, 0.51) 46%, rgba(79, 80, 97, 1) 100%);
-    background: linear-gradient(to bottom, rgba(79, 80, 97, 0.1) 0%, rgba(79, 80, 97, 0.51) 46%, rgba(79, 80, 97, 1) 100%);
-}
-
-.cards-background div {
-    width: 49%;
-    height: 49%;
-    display: inline-block;
-    -webkit-transition: background 0.3s;
-    -moz-transition: background 0.3s;
-    -ms-transition: background 0.3s;
-    -o-transition: background 0.3s;
-    transition: background 0.3s;
-}
-/* Card content */
-
-.card-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background: -moz-linear-gradient(top, rgba(79, 80, 97, 0.1) 0%, rgba(79, 80, 97, 0.51) 46%, rgba(79, 80, 97, 1) 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(79, 80, 97, 0.1)), color-stop(46%, rgba(79, 80, 97, 0.51)), color-stop(100%, rgba(79, 80, 97, 1)));
-    background: -webkit-linear-gradient(top, rgba(79, 80, 97, 0.1) 0%, rgba(79, 80, 97, 0.51) 46%, rgba(79, 80, 97, 1) 100%);
-    background: -o-linear-gradient(top, rgba(79, 80, 97, 0.1) 0%, rgba(79, 80, 97, 0.51) 46%, rgba(79, 80, 97, 1) 100%);
-    background: -ms-linear-gradient(top, rgba(79, 80, 97, 0.1) 0%, rgba(79, 80, 97, 0.51) 46%, rgba(79, 80, 97, 1) 100%);
-    background: linear-gradient(to bottom, rgba(79, 80, 97, 0.1) 0%, rgba(79, 80, 97, 0.51) 46%, rgba(79, 80, 97, 1) 100%);
-}
-
-.card-content .options {
-    display: block;
-    width: 140%;
-    height: 58%;
-    position: absolute;
-    left: -45px;
-    background-size: cover !important;
-    overflow: hidden;
-}
-
-.card-content .options.a {
-    bottom: -8%;
-    z-index: 5;
-    -webkit-transform: rotate(10deg);
-}
-
-.card-content .options.b {
-    -webkit-transform: rotate(10deg);
-    top: -6%;
-    z-index: 10;
-}
-
-.card-content .options > img {
-    position: absolute;
-    top: -12%;
-    left: -10%;
-    width: 130%;
-    height: 130%;
-    -webkit-transform: rotate(-10deg);
-    -webkit-animation: panorama 20s infinite;
-}
-
-.card-description {
-    position: absolute;
-    width: 100%;
-    top: 0;
-    padding: 25px 20px 0 20px;
-    z-index: 10;
-    background: -webkit-linear-gradient(bottom, rgba(89, 88, 89, 0)0%, rgba(89, 88, 89, 0)11%, rgba(17, 17, 17, .03)17%, rgba(28, 28, 28, .1)23%, rgba(19, 19, 19, 1)100%)!important;
-    background: -o-linear-gradient(bottom, rgba(89, 88, 89, 0)0%, rgba(89, 88, 89, .11)11%, rgba(17, 17, 17, .17)17%, rgba(28, 28, 28, .23)23%, rgba(19, 19, 19, 1)100%)!important;
-    background: -ms-linear-gradient(bottom, rgba(89, 88, 89, 0)0%, rgba(89, 88, 89, .11)11%, rgba(17, 17, 17, .17)17%, rgba(28, 28, 28, .23)23%, rgba(19, 19, 19, 1)100%)!important;
-    background: linear-gradient(to top, rgba(89, 88, 89, 0)0%, rgba(89, 88, 89, 0)11%, rgba(17, 17, 17, .03)17%, rgba(28, 28, 28, .1)23%, rgba(19, 19, 19, 1)100%)!important;
-    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#595859', endColorstr='#131313', GradientType=0)!important;
-    text-align: right;
-}
-
-.card-description > h1 {
-  color: white;
-  font-weight: 200;
-  font-size: 25px;
-  z-index: 10;
-  margin: 0;
-  padding: 0;
-  padding-bottom: 12px;
-  text-align: center;
-}
-
-.card-description > .heading-border-bottom {
-    width:40px;
-    height:1px;
-    background:rgba(238,238,238,0.3);
-    margin:auto;
-}
-.card-description > p {
-    color: white;
-    font-weight: 600;
-    font-size: 12px;
-    padding-top: 5px;
-    text-align: center;
-    opacity:0.9;
-}
-
-.count-down {
+.view-cards {
   position: absolute;
-  top: 20px;
-  bottom: 0;
+  height: 100%;
+  width: 100%;
+  top: 0;
   left: 0;
   right: 0;
   margin: auto;
-  width: 85px;
-  height: 85px;
-  border-radius: 100%;
-  border: 3px solid rgba(238, 238, 238, 0.1);
-  z-index: 11;
-  box-shadow: 0 0 33px black;
-  background-clip: padding-box;
+  text-align: center;
+}
+/* View Card */
+
+.view-card {
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  border: 1px solid rgba(1, 1, 1, 0.4);
+  overflow: hidden;
+  margin: auto;
+}
+
+.view-card .options {
+  position: absolute;
+  left: 0;
+  height: 50%;
+  width: 100%;
+  background-size: cover !important;
+}
+
+.view-card .options.add-index {
+  z-index: 2;
+}
+
+.view-card .options.add-transition {
+  -webkit-transition: height 0.3s ease;
+  -moz-transition: height 0.3s ease;
+  -ms-transition: height 0.3s ease;
+  -o-transition: height 0.3s ease;
+  transition: height 0.3s ease;
+}
+
+.view-card .options.a {
+  top: 0;
+  border-bottom: 1px solid rgba(1, 1, 1, 0.4);
+  background: url('http://media.creativebloq.futurecdn.net/sites/creativebloq.com/files/images/2013/03/tripfinder.jpg');
+}
+
+.view-card .options.b {
+  bottom: 0;
+  background: url('http://cdn.designbeep.com/wp-content/uploads/2014/06/1.Mobile-App-Design-Inspiration-%E2%80%93-Peek-Calendar.jpg');
+}
+
+.view-card .options > .card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  z-index: 1;
+}
+/* App Navigation */
+
+.app-navigation {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  background: -moz-linear-gradient(bottom, rgba(39, 39, 41, 1) 0%, rgba(39, 39, 41, 0.99) 1%, rgba(39, 39, 41, 0) 100%);
+  background: -webkit-gradient(linear, left bottom, left bottom, color-stop(0%, rgba(39, 39, 41, 1)), color-stop(1%, rgba(39, 39, 41, 0.99)), color-stop(100%, rgba(39, 39, 41, 0)));
+  background: -webkit-linear-gradient(bottom, rgba(39, 39, 41, 1) 0%, rgba(39, 39, 41, 0.99) 1%, rgba(39, 39, 41, 0) 100%);
+  background: -o-linear-gradient(bottom, rgba(39, 39, 41, 1) 0%, rgba(39, 39, 41, 0.99) 1%, rgba(39, 39, 41, 0) 100%);
+  background: -ms-linear-gradient(bottom, rgba(39, 39, 41, 1) 0%, rgba(39, 39, 41, 0.99) 1%, rgba(39, 39, 41, 0) 100%);
+  background: linear-gradient(to top, rgba(39, 39, 41, 1) 0%, rgba(39, 39, 41, 0.99) 1%, rgba(39, 39, 41, 0) 100%);
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#272729', endColorstr='#00272729', GradientType=0);
+  z-index: 2;
+}
+
+.app-navigation > .analytics,
+.app-navigation > .plus-icon {
+  color: #ED4F73;
+  font-size: 25px;
+  position: absolute;
+  padding: 15px 30px;
+  bottom: 0;
+  min-width: 56px;
+}
+
+.app-navigation > .plus-icon {
+  left: 0;
+}
+
+.app-navigation > .analytics {
+  right: 0;
+  bottom: 0px;
+}
+
+.app-navigation > div {
+  position: relative;
+  bottom: 15px;
+  width: 50px;
+  vertical-align: top;
+  height: 50px;
+  display: inline-block;
+  font-size: 25px;
+  font-weight: 200;
+  line-height: 2em;
+  margin-right: -3px;
+  cursor: pointer;
+  background: #ED4F73;
   color: white;
-  background: rgba(1, 1, 1, 0.5);
+  border-radius: 100%;
+  -webkit-transition: 0.5s ease;
+  -moz-transition: 0.5s ease;
+  -ms-transition: 0.5s ease;
+  -o-transition: 0.5s ease;
+  transition: 0.5s ease;
 }
 
-.count-down > div {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    text-align: center;
-    padding-top: 23px;
+.app-navigation > div.rotate-button {
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  transform: rotate(360deg);
 }
 
-.count-down > div span:nth-child(1) {
-    display: block;
-    font-size: 25px;
-    font-weight: 100;
+.app-navigation > div span {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
 }
 
-.count-down > div span:nth-child(2) {
-    font-size: 7px;
-    font-weight: 600;
-    margin-top: 4px;
-    position: relative;
-    left: 0px;
+.app-navigation > div span.show-icon {
+  opacity: 1;
+}
+/* Contacts Container */
+
+.contacts-container {
+  padding-bottom: 100px;
+  background: #272729;
+}
+
+.contacts-container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  margin-bottom: 100px;
+  background: #272729;
+}
+
+.contacts-container .alphabet {
+  color: #ED4F73;
+  text-align: left;
+  padding: 20px 0 20px 20px;
+  font-size: 20px;
+  font-weight: 200;
+  background: #272729;
+  border-bottom: 1px solid rgba(1, 1, 1, 0.2);
+}
+
+.contacts-container .contact {
+  color: rgba(238, 238, 238, 0.3);
+  font-size: 15px;
+  height: 50px;
+  background: #272729;
+  position: relative;
+}
+
+/* Concact slideable*/
+.contact-slideable-container {
+  position: relative;
+  width: 100%;
+  height: 100%;  
+}
+.contact-slideable {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  padding-left: 20px;
+  line-height: 3.4em;
+  z-index: 1;
+  background:#272729;
+  border-bottom:1px solid rgba(1,1,1,0.1);
+}
+.call-to-actions  {
+  position: absolute;
+  right:0;
+  z-index: 0;
+  width:80px;
+  height:100%;
+  background:#ED4F73;
+}
+.call-to-actions > span {
+  position: absolute;
+  color: white;
+  font-size: 30px;
+  right: 0;  
+  left:38px;
+  top:10px;
+  margin:auto;
+}
+.contact-slideable.add-transition {
+  transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
 }

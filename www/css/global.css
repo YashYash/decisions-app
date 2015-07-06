@@ -9,7 +9,10 @@ p,
 button {
   font-family: "Open Sans", sans-serif !important;
 }
-body {
+body.ionic-body, .pane {
+  background: #272729 !important;
+}
+ion-content {
   background: #272729 !important;
 }
 /* Angular scope change glitches */

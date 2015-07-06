@@ -1,6 +1,7 @@
-var app = angular.module('decisions', ['ionic', 'firebase', 'ionic.contrib.ui.cards', 'ionic-material'])
+var app = angular.module('decisions', ['ionic', 'firebase', 'ionic.contrib.ui.cards', 'ionic-material', 'ngCordova', 'ion-affix'])
 
 app.config(function($stateProvider, $urlRouterProvider) {
+  console.log('Routing now');
   $stateProvider
 
     .state('tab', {

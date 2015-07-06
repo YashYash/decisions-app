@@ -32,26 +32,26 @@
 <ion-content class="create-content" scroll="false">
   <!-- Title -->
   <div class="creation-steps one" ng-class="{'hide-section': (step !== 1)}" on-swipe-up="nextStep()" on-swipe-down="prevStep()">
-    <input placeholder="NAME YOUR DECISION" ng-focus="inputsFocused()" ng-blur="inputsBlurred()" />
+    <input placeholder="NAME YOUR DECISION" ng-focus="inputsFocused()" ng-blur="inputsBlurred()" ng-model="card.title" />
     <p>This will be a short description of your overall question.</p>
-    <button ng-click="nextStep()">NEXT</button>
+    <button ng-click="nextStep()" ng-show="card.title">NEXT</button>
   </div>
   <!-- Set up Options -->
   <div class="creation-steps two" ng-class="{'slide-section-down': (step < 2), 'show-section': (step >= 2), 'hide-section': (step > 3)}" on-swipe-up="nextStep()" on-swipe-down="prevStep()">
     <div class="decision-card" ng-class="{'show-option-b': (step > 2)}">
       <!-- Option A -->
-      <div class="options a">
-        <input placeholder="OPTION A HEADING" class="a" ng-focus="inputsFocused()" ng-blur="inputsBlurred()" />
-        <span class="ion-ios-camera-outline camera"></span>
+      <div class="options a" style="background-image: url('{{card.optionA.image}}')">
+        <input placeholder="OPTION A HEADING" class="a" ng-focus="inputsFocused()" ng-blur="inputsBlurred()" ng-model="card.optionA.title" />
+        <capture-image success="setOptionImages" option="'optionA'"></capture-image>
         <button class="prev" ng-click="prevStep()">PREVIOUS</button>
-        <button class="next" ng-click="nextStep()">NEXT</button>
+        <button class="next" ng-click="nextStep()" ng-show="card.optionA.title">NEXT</button>
       </div>
       <!-- Option B -->
-      <div class="options b">
-        <input placeholder="OPTION A HEADING" class="a" ng-focus="inputsFocused()" ng-blur="inputsBlurred()" />
-        <span class="ion-ios-camera-outline camera"></span>
+      <div class="options b" style="background-image: url('{{card.optionB.image}}')">
+        <input placeholder="OPTION B HEADING" class="a" ng-focus="inputsFocused()" ng-blur="inputsBlurred()" ng-model="card.optionB.title" />
+        <capture-image success="setOptionImages" option="'optionB'"></capture-image>
         <button class="prev" ng-click="prevStep()">PREVIOUS</button>
-        <button class="next" ng-click="nextStep()">NEXT</button>
+        <button class="next" ng-click="nextStep()" ng-show="card.optionB.title">NEXT</button>
       </div>
     </div>
   </div>
@@ -73,30 +73,48 @@
         <div ng-repeat="number in numbers">{{number.number}}</div>
       </ion-scroll>
     </div>
-      <div class="select-type">
-        <button ng-class="{'selected': (card.duration.type === 'MINUTES')}" ng-click="setDurationType('MINUTES')">MINUTES</button>
-        <button ng-class="{'selected': (card.duration.type === 'HOURS')}" ng-click="setDurationType('HOURS')">HOURS</button>
-        <button ng-class="{'selected': (card.duration.type === 'DAYS')}" ng-click="setDurationType('DAYS')">DAYS</button>
-        <button ng-class="{'selected': (card.duration.type === 'MONTHS')}" ng-click="setDurationType('MONTHS')">MONTHS</button>
-        <button ng-click="toggleDurationOverlay()" class="done">DONE</button>
-      </div>    
+    <div class="select-type">
+      <button ng-class="{'selected': (card.duration.type === 'MINUTES')}" ng-click="setDurationType('MINUTES')">MINUTES</button>
+      <button ng-class="{'selected': (card.duration.type === 'HOURS')}" ng-click="setDurationType('HOURS')">HOURS</button>
+      <button ng-class="{'selected': (card.duration.type === 'DAYS')}" ng-click="setDurationType('DAYS')">DAYS</button>
+      <button ng-class="{'selected': (card.duration.type === 'MONTHS')}" ng-click="setDurationType('MONTHS')">MONTHS</button>
+      <button ng-click="toggleDurationOverlay()" class="done">DONE</button>
+    </div>
   </div>
   <div class="creation-steps four" ng-class="{'show-section': (step === 4)}" on-swipe-up="nextStep()" on-swipe-down="prevStep()">
     <div class="quick-selections">
-      <button ng-class="{'selected': (card.duration.quick === 'hour')}" ng-click="setDuration('hour')">
+      <button ng-class="{'selected': (card.duration.quick === 'HOUR')}" ng-click="setDuration('HOUR')">
         1 HOUR
       </button>
-      <button ng-class="{'selected': (card.duration.quick === 'day')}" ng-click="setDuration('day')">
+      <button ng-class="{'selected': (card.duration.quick === 'DAY')}" ng-click="setDuration('DAY')">
         1 DAY
       </button>
-      <button ng-class="{'selected': (card.duration.quick === 'week')}" ng-click="setDuration('week')">
+      <button ng-class="{'selected': (card.duration.quick === 'WEEK')}" ng-click="setDuration('WEEK')">
         1 WEEK
       </button>
-      <button ng-class="{'selected': (card.duration.quick === 'year')}" ng-click="setDuration('year')">
+      <button ng-class="{'selected': (card.duration.quick === 'YEAR')}" ng-click="setDuration('YEAR')">
         1 YEAR
       </button>
-      <button class="custom" ng-click="toggleDurationOverlay()">CUSTOM</button>
+      <button class="custom" ng-click="toggleDurationOverlay()" ng-class="{'selected': (customDuration)}">CUSTOM</button>
+      <div class="go-preview-card">
+        <p>
+          {{card.duration.number}}
+          <span>
+            {{card.duration.type}}
+          </span>
+        </p>
+        <span class="preview-button" ng-click="togglePreviewCard()">PREVIEW CARD</span>
+      </div>
     </div>
     <!-- <button class="prev" ng-click="prevStep()">PREVIOUS</button> -->
   </div>
 </ion-content>
+<div class="preview-card" ng-class="{'show-preview-card': (showPreviewCard)}">
+  <div class="view-card">
+      <view-card card='card'></view-card>
+  </div>
+  <div class="done-edit-buttons">
+      <button  ng-click="togglePreviewCard()">EDIT CARD</button>
+      <button ng-click="createCard()">CREATE CARD!</button>
+  </div>
+</div>
