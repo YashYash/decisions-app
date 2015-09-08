@@ -120,6 +120,8 @@ app.controller('CreateController', [
             $scope.card.duration.type = type;
         };
         $scope.setOptionImages = function(key, image) {
+            console.log("Key:" + key);
+            console.log("Image:" + image);
             $scope.card[key].image = image;
             console.log($scope.card);
             // $scope.card[key].image = imageURI;

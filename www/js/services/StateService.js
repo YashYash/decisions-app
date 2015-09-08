@@ -12,7 +12,9 @@ app.service('StateService', [
     		'state': $state.current.name
     	},
         'User': {
-            'contacts': []
+            'contacts': [],
+            'cards': [],
+            'info': {}
         },
     	'BackgroundController': {
     		'position': '0',

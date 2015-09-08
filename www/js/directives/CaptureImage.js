@@ -10,7 +10,7 @@ app.directive('captureImage', [
       },
       link: function(scope, elem, attr) {},
       templateUrl: 'templates/includes/capture-image.html',
-      controller: ['$scope', '$timeout', 'Camera', function($scope, $timeout, Camera) {
+      controller: ['$scope', '$timeout', function($scope, $timeout) {
         $scope.capture = function() {
           if (navigator.camera) {
             Camera.getPicture().then(function(imageURI) {
@@ -19,6 +19,7 @@ app.directive('captureImage', [
               }, 3000);
             });
           } else {
+            console.log("#### You will see the Camera Service is not defined error, since you are not on a mobile device");
             $scope.success($scope.option, 'http://cdn.designbeep.com/wp-content/uploads/2014/06/1.Mobile-App-Design-Inspiration-%E2%80%93-Peek-Calendar.jpg');
           }
         }

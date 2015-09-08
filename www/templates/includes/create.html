@@ -82,7 +82,7 @@
     </div>
   </div>
   <div class="creation-steps four" ng-class="{'show-section': (step === 4)}" on-swipe-up="nextStep()" on-swipe-down="prevStep()">
-    <div class="quick-selections">
+    <div class="quick-selections" ng-hide="step !== 4">
       <button ng-class="{'selected': (card.duration.quick === 'HOUR')}" ng-click="setDuration('HOUR')">
         1 HOUR
       </button>

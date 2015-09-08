@@ -52,7 +52,13 @@
   bottom: 0;
   background: url('http://cdn.designbeep.com/wp-content/uploads/2014/06/1.Mobile-App-Design-Inspiration-%E2%80%93-Peek-Calendar.jpg');
 }
-
+.background-two-top {
+  background:url('http://ecx.images-amazon.com/images/I/61%2BIOCBEDkL._SL1000_.jpg') !important;
+}
+.background-two-bottom {
+  background:url('http://i1-news.softpedia-static.com/images/news2/Samsung-Galaxy-S6-Edge-to-Get-Wacky-Avengers-Themed-Limited-Edition-475640-10.gif') !important;
+  background-color: rgba(1,1,1,0.8) !important;
+}
 .view-card .options > .card-overlay {
   position: absolute;
   top: 0;

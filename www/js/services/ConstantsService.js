@@ -9,7 +9,6 @@ app.service('ConstantsService', [
     var fireBaseUsersRef = new Firebase(fireBaseUsersUrl);
     var fireBaseCardsUrl = fireBaseRootUrl + 'cards';
     var fireBaseCardsRef = new Firebase(fireBaseCardsUrl);
-    console.log()
 
     return {
       fireBaseRootUrl: fireBaseRootUrl,
@@ -18,6 +17,11 @@ app.service('ConstantsService', [
       fireBaseUsersRef: fireBaseUsersRef,
       fireBaseCardsUrl: fireBaseCardsUrl,
       fireBaseCardsRef: fireBaseCardsRef,
+      fireBaseUserCardsRef: function(userId, array) {
+        var url = fireBaseRootUrl + 'users/' + userId + '/cards';
+        var ref = new Firebase(url);
+        return ref;
+      },
       durationPicker: {
         numbers: function(type) {
           var numbers = [];

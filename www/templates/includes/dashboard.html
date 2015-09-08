@@ -1,1 +1,12 @@
-dashboard.html
+<div class="dasbhoard-banner" ng-class="{'slide-up-banner': (slideUpBanner)}">
+</div>
+<div class="banner-sections" ng-class="{'slide-up': (slideUpBanner)}">
+  <h1>YOUR CARDS</h1>
+  <div class="sub-line"></div>
+  <p>VIEW REAL-TIME ANALYTICS EDIT AND DELETE YOUR CARDS</p>
+</div>
+<ion-content class="dashboard-content" delegate-handle="dashboardScroll" on-scroll="scrollingContent()" ng-class="{'remove-padding-top': (slideUpBanner)}">
+	<div ng-repeat="card in getState('User').info.cards">
+		<div>{{ card.title }}</div>
+	</div>
+</ion-content>

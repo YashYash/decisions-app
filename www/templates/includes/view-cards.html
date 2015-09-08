@@ -1,6 +1,6 @@
 <ion-slide-box class="view-cards" ng-show="showCards">
   <ion-slide class="view-card" ng-repeat="card in cards">
-    <view-card></view-card>
+    <view-card index="$index"></view-card>
   </ion-slide>
 </ion-slide-box>
 <ion-scroll direction="y" ng-show="!showCards" class="contacts-container" overflow-scroll=”true”>

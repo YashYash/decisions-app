@@ -4,7 +4,8 @@
 			" 
 			ng-class="{
                 'add-transition': (transitionA),
-                'add-index': (addIndexA)
+                'add-index': (addIndexA),
+                'background-two-top': (index > 0)
             }">
   <div class="card-overlay top"></div>
 </div>
@@ -13,7 +14,8 @@
 				height: calc(50% + {{heightB}}px); z-index:1;
 			" 
 			ng-class="{
-                'add-transition': (transitionB)
+                'add-transition': (transitionB),
+                'background-two-bottom': (index > 0)
             }">
   <div class="card-overlay bottom"></div>
 </div>

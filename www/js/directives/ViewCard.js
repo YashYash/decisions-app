@@ -4,6 +4,9 @@ app.directive('viewCard', [
     console.log('#### View Card Directive')
     return {
       restrict: 'E',
+      scope: {
+        index: "="
+      },
       link: function(scope, elem, attr) {},
       templateUrl: 'templates/includes/view-card.html',
       controller: ['$scope', '$timeout', function($scope, $timeout) {

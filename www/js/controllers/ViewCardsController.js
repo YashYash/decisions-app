@@ -28,11 +28,11 @@ app.controller('ViewCardsController', [
         number: 3
       }];
       $scope.showCards = true;
-      $scope.contacts = StateService.state['User'].contacts;
-      console.log($scope.contacts);
-      $scope.alphabets = ConstantsService.alphabets();
-      console.log('blah');
-      sortContacts();
+      $timeout(function() {
+        $scope.contacts = StateService.state['User'].contacts;
+        $scope.alphabets = ConstantsService.alphabets();
+        sortContacts();
+      }, 2000);
     }
 
     function sortContacts() {

@@ -19,22 +19,25 @@ app.run(function($ionicPlatform, $rootScope, $timeout, $state, $cordovaContacts,
     });
 
     // Get the contacts
-    if(navigator.contacts) {
+    if (navigator.contacts) {
       getContacts();
-    } 
+    } else {
+      StateService.state['User'].contacts = ConstantsService.devContacts();
+    }
 
     function getContacts() {
       console.log('#### Getting the contacts');
 
       var userContacts = [];
+
       function onSuccess(contacts) {
         console.log('#### Got the contacts');
         for (var i = 0; i < contacts.length; i++) {
           var contact = contacts[i];
           userContacts.push(contact);
         }
-        StateService.state['User'].contacts = userContacts;
-        // StateService.state['User'].contacts = ConstantsService.devContacts();
+        // StateService.state['User'].contacts = userContacts;
+        StateService.state['User'].contacts = ConstantsService.devContacts();
       };
 
       function onError(err) {
@@ -43,11 +46,7 @@ app.run(function($ionicPlatform, $rootScope, $timeout, $state, $cordovaContacts,
 
       var options = {};
       options.multiple = true;
-      if (navigator.contacts) {
-        $cordovaContacts.find(options).then(onSuccess, onError);
-      } else {
-        StateService.state['User'].contacts = ConstantsService.devContacts();
-      }
+      $cordovaContacts.find(options).then(onSuccess, onError);
     }
   });
 })

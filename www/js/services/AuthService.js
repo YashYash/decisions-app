@@ -5,13 +5,15 @@ app.service('AuthService', [
   '$firebaseObject',
   '$timeout',
   'ConstantsService',
+  'StateService',
   function(
     $http,
     $firebaseAuth,
     $rootScope,
     $firebaseObject,
     $timeout,
-    ConstantsService) {
+    ConstantsService,
+    StateService) {
     'use strict';
     console.log('#### Auth Service');
 
@@ -46,7 +48,9 @@ app.service('AuthService', [
               email: user.email,
               profilePic: '',
               thumbnailPic: '',
-              created: new Date()
+              created: new Date(),
+              cards: [],
+              friends: []
             };
             // adds additional fields to user
             authUser[key] = newUser;
@@ -134,6 +138,7 @@ app.service('AuthService', [
         });
       },
       signOut: function() {
+        console.log('#### Signing out');
         auth.$unauth();
         $timeout(function() {
           $rootScope.$broadcast('logged out');
@@ -146,6 +151,31 @@ app.service('AuthService', [
         } else {
           return false;
         }
+      },
+      getUserObject: function() {
+        var authData = auth.$getAuth();
+        var userRef = new Firebase(ConstantsService.fireBaseUsersUrl + '/' + authData.uid);
+        var user = $firebaseObject(userRef);
+        var result = user.$loaded().then(function(response) {
+          return user
+        });
+        return result;
+      },
+      setUserObject: function() {        
+        var setUser = this.getUserObject();
+        setUser.then(function(response) {
+          StateService.state['User'].info = response;
+          $rootScope.$broadcast('user changed');
+        })
+      },
+      watchUser: function() {
+        var authData = auth.$getAuth();
+        var userRef = new Firebase(ConstantsService.fireBaseUsersUrl + '/' + authData.uid);
+        var user = $firebaseObject(userRef);
+        user.$watch(function() {
+          console.log('#### User has changed');
+          $rootScope.$emit('user changed');
+        });
       }
     }
   }
